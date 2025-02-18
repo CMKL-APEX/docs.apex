@@ -1,6 +1,5 @@
 ---
 title: เริ่มต้นใช้งาน
-description: Learn how to start building your next documentation site with Starlight by Astro.
 sidebar:
   order: 2
 ---
@@ -11,116 +10,38 @@ Starlight is a full-featured documentation theme built on top of the [Astro](htt
 This guide will help you get started with a new project.
 See the [manual setup instructions](/manual-setup/) to add Starlight to an existing Astro project.
 
-## ข้อมูลเกี่ยวกับระบบ
+## ทรัพยากรระบบ
 
-### ระบบ APEX AI-HPC 
+:::tip[APEX AI-HPC]
 
+- 30 PFlop/s AI Performance (FP16) <br />
+- 1920 vCPU compute cores <br />
+- 48x A100 40GB GPUs with 1.92 TB Total GPU Memory <br />
+- 3 PB of high-performance parallel storage <br />
+- 200 Gbps InfiniBand HDR <br />
+  :::
 
-| Node Name  | CPU Model         | Cores | RAM  | GPU Model | GPUs | Storage  |
-|------------|------------------|-------|------|-----------|------|----------|
-| prism-1    | AMD EPYC 7742    | 128   | 1TB  | A100 80GB | 8    | 10TB SSD |
-| prism-2    | AMD EPYC 7742    | 128   | 1TB  | A100 80GB | 8    | 10TB SSD |
-| prism-3    | AMD EPYC 7742    | 128   | 1TB  | A100 80GB | 8    | 10TB SSD |
-| prism-4    | AMD EPYC 7742    | 128   | 1TB  | A100 80GB | 8    | 10TB SSD |
+### ระบบประมวลผล
 
+| Components             |                               |
+| ---------------------- | ----------------------------- |
+| CPU Model:             | AMD EPYC™ Rome 7742 @2.25 GHz |
+| Number of socket(s):   | 2                             |
+| Cores per socket(s):   | 64                            |
+| Cores per socket(s):   | 64                            |
+| CPU total cores:       | 256                           |
+| CPU L3 Cache:          | 256 MB                        |
+| Memory Type:           | DDR4-3200MT/s ECC RDIMM       |
+| Memory total capacity: | 1024 GB                       |
 
+### ระบบเครือข่าย
 
-This will create a new [project directory](/guides/project-structure/) with all the necessary files and configurations for your site.
+- Nvidia Mellanox InfiniBand HDR 200 Gb/s
+- Maximum bandwidth: 1.6 TB/s IB GPU-to-GPU between nodes
+- Nvidia Mellanox Spectrum Ethernet 100 Gb/s
 
-:::tip[See it in action]
-Try Starlight in your browser:
-[open the template on StackBlitz](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics).
-:::
+### ระบบจัดเก็บข้อมูล
 
-### Start the development server
-
-When working locally, [Astro’s development server](https://docs.astro.build/en/reference/cli-reference/#astro-dev) lets you preview your work and automatically refreshes your browser when you make changes.
-
-Inside your project directory, run the following command to start the development server:
-
-<Tabs syncKey="pkg">
-<TabItem label="npm">
-
-```sh
-npm run dev
-```
-
-</TabItem>
-<TabItem label="pnpm">
-
-```sh
-pnpm dev
-```
-
-</TabItem>
-<TabItem label="Yarn">
-
-```sh
-yarn dev
-```
-
-</TabItem>
-</Tabs>
-
-This will log a message to your terminal with the URL of your local preview.
-Open this URL to start browsing your site.
-
-### Add content
-
-Starlight is ready for you to add new content, or bring your existing files!
-
-Add new pages to your site by creating Markdown files in the `src/content/docs/` directory.
-
-Read more about file-based routing and support for MDX and Markdoc files in the [“Pages”](/guides/pages/) guide.
-
-### Next steps
-
-- **Configure:** Learn about common options in [“Customizing Starlight”](/guides/customization/).
-- **Navigate:** Set up your sidebar with the [“Sidebar Navigation”](/guides/sidebar/) guide.
-- **Components:** Discover built-in cards, tabs, and more in the [“Components”](/components/using-components/) guide.
-- **Deploy:** Publish your work with the [“Deploy your site”](https://docs.astro.build/en/guides/deploy/) guide in the Astro docs.
-
-## Updating Starlight
-
-:::tip
-Because Starlight is beta software, there will be frequent updates and improvements.
-Be sure to update Starlight regularly!
-:::
-
-Starlight is an Astro integration. You can update it and other Astro packages by running the following command in your terminal:
-
-<Tabs syncKey="pkg">
-<TabItem label="npm">
-
-```sh
-npx @astrojs/upgrade
-```
-
-</TabItem>
-<TabItem label="pnpm">
-
-```sh
-pnpm dlx @astrojs/upgrade
-```
-
-</TabItem>
-<TabItem label="Yarn">
-
-```sh
-yarn dlx @astrojs/upgrade
-```
-
-</TabItem>
-</Tabs>
-
-See the [Starlight changelog](https://github.com/withastro/starlight/blob/main/packages/starlight/CHANGELOG.md) for a full list of the changes made in each release.
-
-## Troubleshooting Starlight
-
-Use the [project configuration](/reference/configuration/) and [individual page frontmatter configuration](/reference/frontmatter/) reference pages to ensure that your Starlight site is configured and functioning properly.
-See the guides in the sidebar for help adding content and customizing your Starlight site.
-
-If your answer cannot be found in these docs, please visit the [full Astro Docs](https://docs.astro.build) for complete Astro documentation.
-Your question may be answered by understanding how Astro works in general, underneath this Starlight theme.
-
-You can also check for any known [Starlight issues on GitHub](https://github.com/withastro/starlight/issues), and get help in the [Astro Discord](https://astro.build/chat/) from our active, friendly community! Post questions in our `#support` forum with the "starlight" tag, or visit our dedicated `#starlight` channel to discuss current development and more!
+- Total 3 PB of high-performance parallel storage
+- 2.2 PB of SAS 12G HDD storage
+- 550 TB of NVMe SSD storage

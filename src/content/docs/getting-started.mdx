@@ -1,6 +1,5 @@
 ---
 title: Getting Started
-description: Learn how to start building your next documentation site with Starlight by Astro.
 sidebar:
   order: 2
 ---
@@ -11,11 +10,41 @@ Starlight is a full-featured documentation theme built on top of the [Astro](htt
 This guide will help you get started with a new project.
 See the [manual setup instructions](/manual-setup/) to add Starlight to an existing Astro project.
 
-## Quick Start
+## System Resources
 
-### Create a new project
+import { Card } from "@astrojs/starlight/components";
 
-Create a new Astro + Starlight project by running the following command in your terminal:
+<Card title="APEX AI-HPC" icon="rocket">
+  - 30 PFlop/s AI Performance (FP16) <br />
+  - 1920 vCPU compute cores <br />
+  - 48x A100 40GB GPUs with 1.92 TB Total GPU Memory <br />
+  - 3 PB of high-performance parallel storage <br />
+  - 200 Gbps InfiniBand HDR <br />
+</Card>
+
+### System Overview
+
+| Components             |                               |
+| ---------------------- | ----------------------------- |
+| CPU Model:             | AMD EPYC™ Rome 7742 @2.25 GHz |
+| Number of socket(s):   | 2                             |
+| Cores per socket(s):   | 128                           |
+| CPU total cores:       | 256                           |
+| CPU L3 Cache:          | 256 MB                        |
+| Memory Type:           | DDR4-3200MHz ECC RDIMM        |
+| Memory total capacity: | 1024 GB                       |
+
+### Network
+
+- Nvidia Mellanox InfiniBand HDR 200 Gb/s
+- Maximum bandwidth: 1.6 TB/s IB GPU-to-GPU between nodes
+- Nvidia Mellanox Spectrum Ethernet 100 Gb/s
+
+### Storage
+
+- Total 3 PB of high-performance parallel storage
+- 2.2 PB of SAS 12G HDD storage
+- 434 TB of NVMe SSD storage
 
 <Tabs syncKey="pkg">
 <TabItem label="npm">
