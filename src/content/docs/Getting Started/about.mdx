@@ -1,0 +1,64 @@
+---
+title: APEX Systems
+sidebar:
+  order: 2
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+## Historical
+
+October 13, 2020 — NVIDIA announced another large deployment in Southeast Asia of the NVIDIA DGX POD AI accelerated computing infrastructure to drive artificial intelligence (AI) research 
+at CMKL University in Thailand. The cluster will be the central computing node that connects to research and university nodes across the country.
+
+As part of Thailand’s AI research infrastructure, CMKL is setting up the AI computing cluster to provide capabilities for data exchange, 
+and an AI analytics platform to support competency building in the new normal economy. 
+This will help drive research in various domains such as food and agriculture, healthcare and smart city.
+
+## System Resources
+
+:::tip[APEX AI-HPC]
+
+- 30 PFlop/s AI Performance (FP16) <br />
+- 1920 vCPU compute cores <br />
+- 48x A100 40GB GPUs with 1.92 TB Total GPU Memory <br />
+- 3 PB of high-performance parallel storage <br />
+- 200 Gbps InfiniBand HDR <br />
+  :::
+
+---
+
+### System Diagram
+![APEX apex_diagram](../../../assets/images/apex_diagram.jpg)
+
+### System Overview
+- Nvidia DGX A100 (40GB) - 6 nodes
+
+| Components / Node      |                               |
+| ---------------------- | ----------------------------- |
+| CPU Model:             | AMD EPYC™ Rome 7742 @2.25 GHz |
+| Number of socket(s):   | 2                             |
+| Cores per socket(s):   | 64                            |
+| Cores per socket(s):   | 64                            |
+| CPU total cores:       | 256                           |
+| CPU L3 Cache:          | 256 MB                        |
+| Memory Type:           | DDR4-3200MT/s ECC RDIMM       |
+| Memory total capacity: | 1024 GB                       |
+| Accelerator (GPGPU) Model : | Nvidia A100 40 GB        |
+| Accelerator Unit :    | 8        |
+| Accelerator total Memory :    | 320 GB        |
+| Accelerator Interconnection :   | NVLink 3.0 & 6 NVSwitch 2.0        |
+
+### Networking
+
+- Nvidia Mellanox InfiniBand HDR 200 Gb/s
+- Maximum bandwidth: 1.6 TB/s IB GPU-to-GPU between nodes
+- Nvidia Mellanox Spectrum Ethernet 100 Gb/s
+
+### Storage
+
+- Total 3 PB of high-performance parallel storage
+- 2.2 PB of SAS 12G HDD storage
+- 550 TB of NVMe SSD storage
+
+---

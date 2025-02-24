@@ -1,0 +1,38 @@
+---
+title: ขอใช้บริการ
+sidebar:
+  order: 1
+  badge: 
+    text: ใหม่
+    variant: tip
+---
+
+## การสมัครบัญชีผู้ใช้งาน
+
+import { Steps } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+
+<Steps>
+1. เริ่มต้นด้วยการ <Badge text="ลงทะเบียนผู้ใช้งาน" size="medium" variant="tip" /> ตามลิงค์ด้านล่าง
+</Steps>
+
+<Aside>โปรดอ่าน `ข้อตกลงและเงื่อนไขการให้บริการ` ให้ครบถ้วนก่อนการลงทะเบียน</Aside>
+<LinkCard
+  title="แบบฟอร์มการขอใช้บริการ APEX"
+  href="https://docs.google.com/forms/d/e/1FAIpQLSe3PVm6HeAcEiMBVSbFAbzVoOrtmxVdTfKW_AKFkFwt7EFMCw/viewform?usp=sf_link"
+  description="กรุณากรอกแบบฟอร์มการขอใช้บริการเพื่อเริ่มต้นใช้งาน APEX" 
+/>
+
+
+<Steps>
+2. เมื่อลงกรอกแบบฟอร์มการขอใช้บริการเรียบร้อยแล้ว 
+      - ทางทีมงานจะตรวจสอบข้อมูลและ <Badge text="ติดต่อกลับภายใน 1-3 วันทำการ" size="medium" variant="caution" />
+
+3. หลังจากทีมงานตรวจสอบข้อมูลเรียบร้อยแล้ว 
+      - ทางทีมงานจะส่ง <Badge text="อีเมล์ยืนยันการใช้บริการ" size="medium" variant="success" /> พร้อมข้อมูลบัญชีการเข้าใช้งานระบบให้กับผู้ใช้งาน
+
+4. ผู้ใช้งานสามารถเริ่มต้นใช้งานระบบ APEX ได้ทันที
+
+</Steps>

@@ -25,12 +25,15 @@ export default defineConfig({
         },
       },
       social: {
-        github: "https://github.com/withastro/starlight",
+        github: "https://github.com/CMKL-APEX/docs.apex",
       },
       customCss: ["./src/styles/global.css"],
       logo: {
-        src: "./src/assets/apex_icon.png",
+        light: "./src/assets/apex_logo_light.svg",
+        dark: "./src/assets/apex_logo_dark.svg",
+        replacesTitle: true,
       },
+      favicon: "./src/assets/apex_icon.png",
     }),
     markdoc(),
   ],
