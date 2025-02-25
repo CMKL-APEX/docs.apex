@@ -37,4 +37,8 @@ export default defineConfig({
     }),
     markdoc(),
   ],
+  site: "https://docs.apex.cmkl.ai",
+  base: "/docs.apex",
+  outDir: "public",
+  publicDir: "static",
 });
