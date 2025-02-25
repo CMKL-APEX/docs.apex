@@ -38,4 +38,9 @@ export default defineConfig({
     markdoc(),
   ],
   site: "https://docs.apex.cmkl.ai",
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/noop'
+    }
+  },
 });
