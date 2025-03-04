@@ -33,14 +33,14 @@ export default defineConfig({
         dark: "./src/assets/apex_logo_dark.svg",
         replacesTitle: true,
       },
-      favicon: "./src/assets/apex_icon.png",
+      favicon: "./src/assets/apex_icon.svg",
     }),
     markdoc(),
   ],
   site: "https://docs.apex.cmkl.ai",
   image: {
     service: {
-      entrypoint: 'astro/assets/services/noop'
-    }
+      entrypoint: "astro/assets/services/noop",
+    },
   },
 });
