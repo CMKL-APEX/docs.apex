@@ -5,4 +5,55 @@ sidebar:
   order: 1
 ---
 
-##  
+import { Code } from "@astrojs/starlight/components";
+
+## Method 1: Secure Shell (SSH)
+
+Many users prefer to use the command line interface (CLI) to connect to the APEX cluster.
+Suggested SSH clients are:
+
+- Terminal , Termius (Linux, MacOS)
+- MobaXterm, PuTTY, PowerShell (Windows)
+
+First, you need to connect to the APEX cluster using SSH. You can use the following command to connect to the APEX cluster:
+
+export const cli = `ssh <username>@apex-login.cmkl.ac.th`;
+export const cli_out = `ssh <username>@archon-2:~$`;
+export const fileName = "Terminal";
+export const highlights = ["<username>"];
+export const highlights2 = ["archon-2"];
+
+<Code code={cli} lang="bash" title={fileName} mark={highlights} />
+
+<br />
+If you are login successfully, you will see the following message:
+
+```bash
+Welcome to APEX by CMKL University
+Server uptime: up 43 day, 14 hours, 57 minutes
+==================================================
+             _    ______  ______ __   ___
+            //\  |||  __ \|  ____\ \ / //
+           //  \ ||| |__) | | ___ \ V //
+          // /\ \ ||  ___/| | |_|  > <<
+         // /__\ \ | |    | |____ / . \
+        //_/    \_\ _|    |_____//_/ \_\2
+==================================================
+The Next Generation of Cloud HPC+AI Infrastructure
+: https://www.cmkl.ac.th/research/apex
+
+User guide (Up to date)
+: https://docs.apex.cmkl.ai
+
+==================================================
+Last login: Wed Jul 3 16:11:47 2024 from x.x.x.x
+```
+
+And you can see the hostname of the login node, Our login node is `archon-2`.
+
+<Code code={cli_out} lang="bash" title={fileName} mark={highlights2} />
+<br />
+
+## Method 2: Web Portal (Open OnDemand)
+
+- (Under Construction)
