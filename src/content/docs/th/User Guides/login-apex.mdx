@@ -5,4 +5,55 @@ sidebar:
   order: 1
 ---
 
-##  
+import { Code } from "@astrojs/starlight/components";
+
+## วิธีที่ 1: Secure Shell (SSH)
+
+ผู้ใช้งานหลากหลายท่านโดยส่วนใหญ่ใช้ command line interface (CLI) เพื่อที่จะเขื่อมต่อไปยัง APEX cluster
+SSH clients ที่แนะนำได้แก่:
+
+- Terminal , Termius (Linux, MacOS)
+- MobaXterm, PuTTY, PowerShell (Windows)
+
+ขั้นตอนแรก คุณตจำเป็นต้องเชื่อมต่อไปยัง APEX cluster ผ่านคำสั่ง SSH:
+
+export const cli = `ssh <username>@apex-login.cmkl.ac.th`;
+export const cli_out = `ssh <username>@archon-2:~$`;
+export const fileName = "Terminal";
+export const highlights = ["<username>"];
+export const highlights2 = ["archon-2"];
+
+<Code code={cli} lang="bash" title={fileName} mark={highlights} />
+
+<br />
+เมื่อคุณได้ login สำเร็จแล้วคุณจะได้หน้าตาข้อความดังนี้:
+
+```bash
+Welcome to APEX by CMKL University
+Server uptime: up 43 day, 14 hours, 57 minutes
+==================================================
+             _    ______  ______ __   ___
+            //\  |||  __ \|  ____\ \ / //
+           //  \ ||| |__) | | ___ \ V //
+          // /\ \ ||  ___/| | |_|  > <<
+         // /__\ \ | |    | |____ / . \
+        //_/    \_\ _|    |_____//_/ \_\2
+==================================================
+The Next Generation of Cloud HPC+AI Infrastructure
+: https://www.cmkl.ac.th/research/apex
+
+User guide (Up to date)
+: https://docs.apex.cmkl.ai
+
+==================================================
+Last login: Wed Jul 3 16:11:47 2024 from x.x.x.x
+```
+
+และคุณจะเห็นชื่อ ```hostname``` ใน login node ซึ่ง login node จะอยู่ ใน ```archon-2```
+
+<Code code={cli_out} lang="bash" title={fileName} mark={highlights2} />
+<br />
+
+## วิธีที่ 2: Web Portal (Open OnDemand)
+
+- (Under Construction)
