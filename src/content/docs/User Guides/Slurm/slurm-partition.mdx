@@ -9,6 +9,7 @@ sidebar:
 
 import { Badge } from "@astrojs/starlight/components";
 import { Aside } from "@astrojs/starlight/components";
+import PartitionTable from '../../../../components/PartitionTable.astro';
 
 ## Partition
 
@@ -19,13 +20,7 @@ it has been allocated in the following format:
 
 <br />
 
-|                    Partition                     | Node | Time Limit | CPU |                   GPU                    | RAM |            Max gpus per user             |          Usage          |
-| :----------------------------------------------: | :--: | :--------: | :-: | :--------------------------------------: | :-: | :--------------------------------------: | :---------------------: |
-| debug <Badge text="default" variant="success" /> |  4   |  0:30:00   |  2  | <Badge text="No GPU" variant="danger" /> |  8  | <Badge text="No GPU" variant="danger" /> |      Quick testing      |
-|                       cpu                        |  4   | 168:00:00  | 192 | <Badge text="No GPU" variant="danger" /> | 256 | <Badge text="No GPU" variant="danger" /> |      CPU-only jobs      |
-|                       gpu                        |  1   |  72:00:00  | 64  |                    4                     | 256 |                    4                     | Short tasks (1-4 GPUs)  |
-|                      batch                       |  3   | 168:00:00  | 128 |                    8                     | 512 |                    8                     | LLM training (> 4 GPUs) |
-|                   interactive                    |  1   |  1:00:00   | 16  |                    1                     | 64  |                    1                     |    Interactive jobs     |
+<PartitionTable />
 
 <br />
 
