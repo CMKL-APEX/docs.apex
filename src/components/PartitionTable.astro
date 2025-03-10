@@ -1,0 +1,103 @@
+---
+import { Badge } from "@astrojs/starlight/components";
+---
+
+<div class="partition-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Partition</th>
+        <th>Node</th>
+        <th>Time Limit</th>
+        <th>CPU</th>
+        <th>GPU</th>
+        <th>RAM</th>
+        <th>Max gpus per user</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="debug-row">
+        <td>debug <Badge text="default" variant="success" /></td>
+        <td>4</td>
+        <td>0:30:00</td>
+        <td>2</td>
+        <td><Badge text="No GPU" variant="danger" /></td>
+        <td>8</td>
+        <td><Badge text="No GPU" variant="danger" /></td>
+        <td>Quick testing</td>
+      </tr>
+      <tr>
+        <td>cpu</td>
+        <td>4</td>
+        <td>168:00:00</td>
+        <td>192</td>
+        <td><Badge text="No GPU" variant="danger" /></td>
+        <td>256</td>
+        <td><Badge text="No GPU" variant="danger" /></td>
+        <td>CPU-only jobs</td>
+      </tr>
+      <tr>
+        <td>gpu</td>
+        <td>1</td>
+        <td>72:00:00</td>
+        <td>64</td>
+        <td>4</td>
+        <td>256</td>
+        <td>4</td>
+        <td>Short tasks (1-4 GPUs)</td>
+      </tr>
+      <tr>
+        <td>batch</td>
+        <td>3</td>
+        <td>168:00:00</td>
+        <td>128</td>
+        <td>8</td>
+        <td>512</td>
+        <td>8</td>
+        <td>LLM training (> 4 GPUs)</td>
+      </tr>
+      <tr>
+        <td>interactive</td>
+        <td>1</td>
+        <td>1:00:00</td>
+        <td>16</td>
+        <td>1</td>
+        <td>64</td>
+        <td>1</td>
+        <td>Interactive jobs</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .partition-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .partition-table th,
+  .partition-table td {
+    padding: 10px;
+    text-align: center !important; /* Added !important to override any conflicting styles */
+    vertical-align: middle;
+  }
+  
+  /* Extra specific selector for table headers */
+  .partition-table table thead tr th {
+    text-align: center !important;
+  }
+  
+  .partition-table th {
+    border-bottom: 2px solid var(--sl-color-gray-5);
+  }
+  
+  .partition-table td {
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+  
+  .partition-table .debug-row {
+    height: 80px; /* Make the debug row taller */
+  }
+</style>
