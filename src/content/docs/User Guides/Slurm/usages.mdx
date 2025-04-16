@@ -1,0 +1,91 @@
+---
+title: Usages
+sidebar:
+  order: 4
+  badge:
+    text: New
+    variant: tip
+---
+
+import { Badge } from "@astrojs/starlight/components";
+import { Aside } from "@astrojs/starlight/components";
+import PartitionTable from '../../../../components/PartitionTable.astro';
+import { Code } from "@astrojs/starlight/components";
+
+#### `sinfo`
+
+<br />
+The `sinfo` command shows the state of partitions and nodes managed by Slurm.
+<br />
+
+
+```bash
+$ sinfo
+
+PARTITION   AVAIL  TIMELIMIT  NODES  STATE NODELIST
+debug*         up      30:00      4    mix prism-[1-4]
+cpu            up 7-00:00:00      4    mix prism-[1-4]
+gpu            up 3-00:00:00      1    mix prism-4
+batch          up 7-00:00:00      4    mix prism-[1-4]
+interactive    up    1:00:00      1    mix prism-4
+```
+
+When there is a maintenance or failure in any node, you can add `-R` flag to sinfo command to check for more details.
+
+```bash
+$ sinfo -R
+```
+
+#### `squeue`
+
+<br />
+The `squeue` command shows the status of the submitted job in the cluster. This includes pending, running, and completing jobs.
+<br />
+
+```bash
+$ squeue
+
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+12345     batch     vllm    test1 PD       0:00      1 (Resources)
+12346     batch   python    test2 PD       0:00      1 (Priority)
+12347     batch   python    test2  R       2:49      1 prism-1
+12348     debug     bash    test1  R      15:30      1 prism-1
+12349     debug image-la    test3  R       1:00      1 prism-2
+```
+
+Assuming you are `test1` user, you want to filter only your submmited job, you can add `-u` flag to filter only for your jobs.
+
+```bash
+# $USER is environment variable that contains the current session username. 
+# This can also be replaced by your username.
+# In this example, $USER refer to test1
+$ squeue -u $USER 
+
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+12345     batch     vllm    test1 PD       0:00      1 (Resources)
+12348     debug     bash    test1  R      15:30      1 prism-1
+
+```
+
+#### `srun`
+
+To run simple interactive job, you can use `srun` command. `srun` will run the command you passed in as an arguments.
+
+
+The following command will submit the job and run the `hostname` command on the node that your job have been submitted to. (In this case is prism-3)
+```bash
+$ srun hostname
+
+prism-3
+```
+
+You can also run bash using `srun`, this will result in interactive shell environment.
+
+```bash
+@archon-2 $ srun --pty /bin/bash
+
+# You will get new session to the prism node. You can run `hostname` again, this will be equivalent to previous example.
+@prism-3 $ hostname
+prism-3
+```
+
