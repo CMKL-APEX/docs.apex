@@ -21,19 +21,19 @@ import { Badge } from "@astrojs/starlight/components";
         <td>debug <Badge text="default" variant="success" /></td>
         <td>4</td>
         <td>0:30:00</td>
-        <td>2</td>
-        <td><Badge text="No GPU" variant="danger" /></td>
         <td>8</td>
-        <td><Badge text="No GPU" variant="danger" /></td>
+        <td>1</td>
+        <td>16</td>
+        <td>1</td>
         <td>Quick testing</td>
       </tr>
       <tr>
         <td>cpu</td>
         <td>4</td>
-        <td>168:00:00</td>
-        <td>192</td>
+        <td>72:00:00</td>
+        <td>8</td>
         <td><Badge text="No GPU" variant="danger" /></td>
-        <td>256</td>
+        <td>16</td>
         <td><Badge text="No GPU" variant="danger" /></td>
         <td>CPU-only jobs</td>
       </tr>
@@ -41,31 +41,31 @@ import { Badge } from "@astrojs/starlight/components";
         <td>gpu</td>
         <td>1</td>
         <td>72:00:00</td>
-        <td>64</td>
-        <td>4</td>
-        <td>256</td>
-        <td>4</td>
-        <td>Short tasks (1-4 GPUs)</td>
+        <td>8</td>
+        <td>1</td>
+        <td>16</td>
+        <td>1</td>
+        <td>GPU tasks on prism-4</td>
       </tr>
       <tr>
         <td>batch</td>
-        <td>3</td>
-        <td>168:00:00</td>
-        <td>128</td>
+        <td>4</td>
+        <td>96:00:00</td>
         <td>8</td>
-        <td>512</td>
-        <td>8</td>
-        <td>LLM training (> 4 GPUs)</td>
+        <td>1</td>
+        <td>16</td>
+        <td>1</td>
+        <td>Longer running jobs</td>
       </tr>
       <tr>
         <td>interactive</td>
         <td>1</td>
         <td>1:00:00</td>
+        <td>8</td>
+        <td>1</td>
         <td>16</td>
         <td>1</td>
-        <td>64</td>
-        <td>1</td>
-        <td>Interactive jobs</td>
+        <td>Interactive jobs on prism-4</td>
       </tr>
     </tbody>
   </table>

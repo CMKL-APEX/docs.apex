@@ -12,6 +12,10 @@ import { Aside } from "@astrojs/starlight/components";
 import PartitionTable from '../../../../components/PartitionTable.astro';
 import { Code } from "@astrojs/starlight/components";
 
+## Basic Slurm Commands
+
+### Viewing System Information
+
 #### `sinfo`
 
 <br />
@@ -34,6 +38,41 @@ When there is a maintenance or failure in any node, you can add `-R` flag to sin
 
 ```bash
 $ sinfo -R
+```
+
+### Job Management Commands
+
+#### `sbatch`
+The `sbatch` command is used to submit a job script for later execution.
+
+```bash
+$ sbatch myjob.sh
+Submitted batch job 12345
+```
+
+Example job script (myjob.sh):
+```bash
+#!/bin/bash
+#SBATCH --job-name=my_test_job    # Job name
+#SBATCH --output=job_%j.out       # Output file (%j = job ID)
+#SBATCH --error=job_%j.err        # Error file
+#SBATCH --time=01:00:00          # Time limit hrs:min:sec
+#SBATCH --nodes=1                # Number of nodes
+#SBATCH --ntasks=1              # Number of CPU cores
+#SBATCH --mem=2G               # Memory limit
+
+echo "My first Slurm job"
+hostname
+date
+sleep 60
+```
+
+#### `scancel`
+The `scancel` command is used to cancel a queued or running job.
+
+```bash
+$ scancel 12345    # Cancel job with ID 12345
+$ scancel -u username  # Cancel all jobs for a specific user
 ```
 
 #### `squeue`
@@ -67,25 +106,90 @@ JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
 
 ```
 
+### Interactive Sessions
+
 #### `srun`
-
-To run simple interactive job, you can use `srun` command. `srun` will run the command you passed in as an arguments.
-
-
-The following command will submit the job and run the `hostname` command on the node that your job have been submitted to. (In this case is prism-3)
-```bash
-$ srun hostname
-
-prism-3
-```
-
-You can also run bash using `srun`, this will result in interactive shell environment.
+The `srun` command is used to run jobs interactively or create job steps.
 
 ```bash
-@archon-2 $ srun --pty /bin/bash
-
-# You will get new session to the prism node. You can run `hostname` again, this will be equivalent to previous example.
-@prism-3 $ hostname
-prism-3
+$ srun --pty bash -i     # Start an interactive bash session
+$ srun -N1 hostname     # Run 'hostname' command on one node
 ```
+
+### GPU Job Submission
+
+#### Interactive GPU Session
+To request an interactive session with GPU access:
+
+```bash
+# Request 1 GPU with 8 CPU cores and 16GB memory
+$ srun --partition=batch --gres=gpu:1 --cpus-per-gpu=8 --mem-per-gpu=16G --pty bash -i
+
+# Request another example with the same configuration
+$ srun --partition=batch --gres=gpu:1 --cpus-per-gpu=8 --mem-per-gpu=16G --pty bash -i
+```
+
+#### Batch GPU Jobs
+Example GPU job script (gpu_job.sh):
+```bash
+#!/bin/bash
+#SBATCH --job-name=gpu_test     # Job name
+#SBATCH --output=gpu_%j.out     # Output file (%j = job ID)
+#SBATCH --error=gpu_%j.err      # Error file
+#SBATCH --partition=batch       # Partition selection
+#SBATCH --gres=gpu:1           # Number of GPUs (1 in this case)
+#SBATCH --cpus-per-gpu=8       # CPUs per GPU
+#SBATCH --mem-per-gpu=16G      # Memory per GPU
+#SBATCH --time=08:00:00        # Time limit hrs:min:sec
+
+# Load any required modules here
+# module load cuda/11.8
+
+# Your GPU program commands here
+nvidia-smi  # Check GPU status
+python your_gpu_script.py
+```
+
+Submit the GPU job:
+```bash
+$ sbatch gpu_job.sh
+```
+
+You can monitor your job's output in real-time using the `tail` command:
+```bash
+# Monitor output file (replace JOBID with your job number)
+$ tail -f gpu_JOBID.out
+
+# Monitor error file
+$ tail -f gpu_JOBID.err
+
+# Example with actual job ID 12345
+$ tail -f gpu_12345.out
+```
+
+<Aside type="tip">
+  When running GPU jobs:
+  - Use `nvidia-smi` to verify GPU availability
+  - Monitor GPU usage with `nvidia-smi -l 1` (updates every second)
+  - Check GPU partition availability with `sinfo -p batch`
+  - Use `tail -f` to follow log files in real-time
+</Aside>
+
+### Resource Monitoring
+
+#### `scontrol`
+The `scontrol` command is the administrative tool for viewing and modifying Slurm state.
+
+```bash
+$ scontrol show job 12345          # Show details of a specific job
+$ scontrol show node prism-1       # Show details of a specific node
+$ scontrol show partition          # Show partition information
+```
+
+<Aside type="tip">
+  Use `man` command to get detailed information about any Slurm command, for example: `man sbatch`
+</Aside>
+
+
+
 

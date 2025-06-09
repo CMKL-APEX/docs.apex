@@ -5,11 +5,99 @@ sidebar:
   order: 2
 ---
 
-## Slurm Workload Manager
-SLURM (Simple Linux Utility for Resource Management) is open-source software responsible for managing access to resources in a cluster.
-It uses a job system for allocation. Initially, users must create Jobs/Tasks by specifying the resources they need, then submit them to the system.
-SLURM manages the Jobs/Tasks from queuing in the system, processing, and monitoring the work until the process is complete. 
-Additionally, SLURM ensures that:
-- Jobs/Tasks are distributed throughout the cluster
-- Resources such as processors, memory, and even specialized hardware like GPUs are appropriately allocatedc
-- Supports operations and can scale according to available resources
+## Introduction to Slurm
+
+Slurm (Simple Linux Utility for Resource Management) is an essential workload manager designed to efficiently allocate computational resources in high-performance computing environments. It serves as a centralized management system that coordinates the execution of computational tasks across multiple computing nodes.
+
+### Purpose and Function
+
+Slurm provides systematic resource management through:
+
+1. **Resource Allocation**: Efficiently distributes computational tasks across available resources
+2. **Workload Management**: Organizes and prioritizes job execution
+3. **Monitoring**: Tracks resource utilization and job status
+4. **Access Control**: Ensures fair and secure resource distribution
+
+### Core Functionality
+
+Slurm manages computational resources by:
+
+- Coordinating resource allocation across computing nodes
+- Implementing queue management for job scheduling
+- Monitoring system utilization and job progress
+- Maintaining system stability and performance
+- Providing detailed job and resource status information
+
+## Fundamental Concepts
+
+### Job Submission
+A job represents a computational task submitted to the system. When submitting a job, users specify:
+- The program or script to execute
+- Required computational resources
+- Estimated runtime duration
+
+### Partitions
+Partitions are logical divisions of the computing cluster, each designed for specific computational needs:
+- Short-duration computational tasks
+- Standard production workloads
+- Resource-intensive computations
+
+Each partition maintains specific parameters:
+- Maximum runtime limits
+- Resource allocation limits
+- Access control policies
+
+### Resource Specifications
+Users may request various computational resources:
+- **CPU Allocation**: Number of processing cores
+- **Memory Requirements**: RAM allocation
+- **Time Limits**: Maximum execution duration
+- **Specialized Hardware**: Access to GPUs or other accelerators
+
+## Job Status Monitoring
+
+Jobs progress through several defined states during their lifecycle:
+
+- **PENDING (PD)**: Job is queued awaiting resource allocation
+- **RUNNING (R)**: Job is actively executing on allocated resources
+- **COMPLETED (CD)**: Job has successfully finished execution
+- **FAILED (F)**: Job terminated with execution error
+- **CANCELLED (CA)**: Job terminated by user or system administrator
+- **TIMEOUT (TO)**: Job exceeded its specified time limit
+
+## Resource Allocation Policy
+
+Slurm implements a comprehensive resource allocation policy:
+
+- Equitable resource distribution
+- Dynamic priority adjustment based on job size and wait time
+- User-specific resource quotas
+- Priority escalation for long-waiting jobs
+
+## Best Practices for New Users
+
+1. Begin with small-scale test submissions
+2. Request resources appropriate to computational needs
+3. Monitor job status and resource utilization
+4. Document effective partition configurations for various workloads
+
+## References and External Resources
+
+### Official Documentation
+- [Slurm Documentation](https://slurm.schedmd.com/documentation.html) - Comprehensive technical documentation
+- [Slurm Quick Start Guide](https://slurm.schedmd.com/quickstart.html) - Essential guide for beginners
+- [Slurm Command Reference](https://slurm.schedmd.com/pdfs/summary.pdf) - Quick reference card for Slurm commands
+
+### Tutorials and Learning Resources
+- [LLNL HPC Tutorials - Slurm](https://hpc.llnl.gov/banks-jobs/running-jobs/slurm) - Lawrence Livermore National Laboratory's Slurm guide
+- [TACC User Portal - Slurm Guide](https://portal.tacc.utexas.edu/user-guides/stampede2#slurm-job-scheduler) - Texas Advanced Computing Center's user guide
+- [Princeton Research Computing - Slurm](https://researchcomputing.princeton.edu/support/knowledge-base/slurm) - Princeton University's Slurm documentation
+
+### Scientific Computing References
+- [Slurm Research Paper](https://slurm.schedmd.com/slurm_ug_2010.pdf) - Technical overview and architecture
+- [Slurm Design Overview](https://slurm.schedmd.com/overview.html) - System architecture and design principles
+- [Slurm Publications](https://slurm.schedmd.com/publications.html) - Collection of academic papers and presentations
+
+### Related Internal Documentation
+1. [Slurm Partition Configuration](../slurm-partition) - Available partitions and specifications
+2. [Slurm Usage Guide](../usages) - Practical examples and command reference
