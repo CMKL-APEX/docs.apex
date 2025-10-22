@@ -1,0 +1,42 @@
+---
+title: Usages
+sidebar:
+  order: 3
+  badge:
+    text: New
+    variant: tip
+---
+
+## Project Page
+
+`Project` is an abstraction for a resources this include CPUs, memory, GPUs, and storage. Users cannot allocate more resources that it is available. 
+
+![](https://media.discordapp.net/attachments/1428636218215628910/1428636239183089745/image.png?ex=68f338ae&is=68f1e72e&hm=cad5a9ddafb518cdec378360f6924635f9dbf77b5a745f45d683668cee503a7b&=&format=webp&quality=lossless)
+
+It will show all the tasks that belong to this project and resources that have been allocated to this project.
+
+## Task
+
+There are currently 2 templates available on Apex.
+
+1. `Code Server`: Which is a VSCode on a web browser. This is recommended for general tasks.
+2. `NeMo`: Those who want to use the [NeMo](https://www.nvidia.com/en-us/ai-data-science/products/nemo/) can use this template to run a NeMo stack with a VSCode interface.
+
+### Create Task
+
+All the `tasks` are belong to a Project. Users can create `task` with a GPU by click the create task menu and select the template.
+
+
+After create a task, it will show a `Pending` status while it is being create. After finished, it will change to `Running` status and user can click `Open` to access the task.
+
+
+> If you stop the Task, currently it won't be able to restart it.
+
+
+### Volume
+
+We support volume for persistent storage. Volumes are project-scoped, so every tasks in the project can mount volume to it.
+
+### Disclaimer
+
+Glider is still under development, if you encounter any issues on Glider please contact out support team (apex@cmkl.ac.th).
