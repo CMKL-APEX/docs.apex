@@ -37,6 +37,16 @@ After create a task, it will show a `Pending` status while it is being create. A
 
 We support volume for persistent storage. Volumes are project-scoped, so every tasks in the project can mount volume to it.
 
-### Disclaimer
 
-Glider is still under development, if you encounter any issues on Glider please contact out support team (apex@cmkl.ac.th).
+### Policy
+
+- Glider is still under development, if you encounter any issues on Glider please contact out support team (apex@cmkl.ac.th).
+- We do not have any SLAs for Glider, please backup your data regulary
+- Your task might be terminated by our system-admin, any files or scripts that want to be persistent, please use the dedicated volume.
+- You may encounter a `Pending` state due to our system resources limitation, if your tasks are critical please contact our admin.
+
+### Known issues
+
+- Glider Task cannot run any superuser commands (sudo)
+- Glider is running in containers, so if your projects require a virtual machine support, please contact our support.
+- Some library/framework uses total CPUs of system as default value, in this case, it will cause a CPU throttle on your container.

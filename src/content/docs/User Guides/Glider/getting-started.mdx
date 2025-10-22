@@ -1,0 +1,43 @@
+---
+title: Getting-Started
+sidebar:
+  order: 4
+  badge:
+    text: New
+    variant: tip
+---
+
+## Getting Started with Glider Task
+
+Glider task (CodeServer) is mostly an empty container, some packages might need to be installed manually.
+
+### Install UV
+
+UV is an extremely fast Python package and project manager, like `pip`.
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+source $HOME/.local/bin/env
+```
+
+To create new environment for your project
+
+```bash
+mkdir sample-project
+cd sample-project
+
+uv venv --seed --python=3.12
+```
+
+Then activate your environment
+```bash
+source .venv/bin/activate
+```
+
+Now you can install any packages you want.
+
+```bash
+uv pip install torch
+```
+
