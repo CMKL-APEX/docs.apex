@@ -24,9 +24,13 @@ export default defineConfig({
           lang: "th",
         },
       },
-      social: {
-        github: "https://github.com/CMKL-APEX/docs.apex",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/CMKL-APEX/docs.apex",
+        },
+      ],
       customCss: ["./src/styles/global.css"],
       logo: {
         light: "./src/assets/apex_logo_light.svg",
